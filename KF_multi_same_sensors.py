@@ -20,13 +20,13 @@ def kalman_filter(x, P):
             K = P * H.transpose() * inv(S)
             x = x + (K * y)
             P = (I - (K * H)) * P
-            print 'motion matrix'
-            print P
+            print(' \n motion matrix')
+            print (P)
             
 
             positions.append(x[0][0])
     
-    print 'R= '
+    print('\n R= ')
     print(R)
         
     return positions
@@ -48,8 +48,8 @@ R = matrix([[2, 0],[0., 10]]) # measurement uncertainty
 measurements1 = [2, 5, 8]
 #sensor data 2
 measurements2 = [2, 4, 6]
-print('x=',x)
-print('P=',P)
+print('\n x=',x)
+print('\n P=',P)
 if __name__ == '__main__':
     
     positions = kalman_filter(x,P)
